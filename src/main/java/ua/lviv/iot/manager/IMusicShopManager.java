@@ -10,4 +10,5 @@ public interface IMusicShopManager {
 	List<Music> getSortedByDecreasingDuration(List<Music> list);
 	List<Music> getSortedByIncreasingSize(List<Music> list);
 	List<Music> getSortedByDecreasingSize(List<Music> list);
+	void addMusic(Music m);
 }

@@ -3,6 +3,15 @@ package ua.lviv.iot.model;
 public class Music {
 	private String genre, name, author;
 	private double durationInMinutes, sizeInMb;
+	
+	public Music(String genre, String name, String author,
+			double durationInMinutes, double sizeInMb) {
+			this.genre = genre;
+			this.name = name;
+			this.author = author;
+			this.durationInMinutes = durationInMinutes;
+			this.sizeInMb = sizeInMb;
+	}
 
 	public String getGenre() {
 		return genre;

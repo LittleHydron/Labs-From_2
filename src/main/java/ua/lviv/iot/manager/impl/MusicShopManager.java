@@ -11,12 +11,12 @@ import ua.lviv.iot.model.Music;
 
 public class MusicShopManager implements IMusicShopManager{
 	Map<String, List<Music>> content = new HashMap<>();
-
+	
 	@Override
 	public List<Music> findByGenreForCD(String genre) {
 		List<Music> list = new LinkedList<>();
 		content.get(genre).forEach(music->{
-			if (music.getGenre().equals(genre)) list.add(music);
+			if (music.getDurationInMinutes() < 11) list.add(music);
 		});
 		return list;
 	}
@@ -44,5 +44,15 @@ public class MusicShopManager implements IMusicShopManager{
 	public List<Music> getSortedByDecreasingSize(List<Music> list) {
 		list.sort(Comparator.comparing(Music::getSizeInMb).reversed());
 		return list;
+	}
+	
+	@Override
+	public void addMusic(Music m) {
+		List<Music> lst= content.get(m.getGenre());
+		if (lst == null) {
+			lst = new LinkedList<>();
+		}
+		lst.add(m);
+		content.put(m.getGenre(), lst);
 	}
 }
