@@ -9,46 +9,55 @@ import java.util.Map;
 import ua.lviv.iot.manager.IMusicShopManager;
 import ua.lviv.iot.model.Music;
 
-public class MusicShopManager implements IMusicShopManager{
-	Map<String, List<Music>> content = new HashMap<>();
-	
+public class MusicShopManager implements IMusicShopManager {
+	private Map<String, List<Music>> content = new HashMap<>();
+
 	@Override
-	public List<Music> findByGenreForCD(String genre) {
+	public List<Music> findByGenreForCD(final String genre) {
+		final int maxDuration = 11;
 		List<Music> list = new LinkedList<>();
-		content.get(genre).forEach(music->{
-			if (music.getDurationInMinutes() < 11) list.add(music);
+		content.get(genre).forEach(music -> {
+			if (music.getDurationInMinutes() < maxDuration) {
+				list.add(music);
+			}
 		});
 		return list;
 	}
 
 	@Override
-	public List<Music> getSortedByIncreasingDuration(List<Music> list) {
-		list.sort(Comparator.comparing(Music::getDurationInMinutes));
-		
-		return list;
+	public List<Music> getSortedByIncreasingDuration(final List<Music> list) {
+		var lst = list;
+		lst.sort(Comparator.comparing(Music::getDurationInMinutes));
+		return lst;
 	}
 
 	@Override
-	public List<Music> getSortedByDecreasingDuration(List<Music> list) {
-		list.sort(Comparator.comparing(Music::getDurationInMinutes).reversed());
-		return list;
+	public List<Music> getSortedByDecreasingDuration(final List<Music> list) {
+		var lst = list;
+		lst.sort(Comparator.comparing(
+				Music::getDurationInMinutes).reversed());
+		return lst;
 	}
 
 	@Override
-	public List<Music> getSortedByIncreasingSize(List<Music> list) {
-		 list.sort(Comparator.comparing(Music::getSizeInMb));
-		return list;
+	public List<Music> getSortedByIncreasingSize(final List<Music> list) {
+		var lst = list;
+		 lst.sort(Comparator.comparing(
+				 Music::getSizeInMb));
+		return lst;
 	}
 
 	@Override
-	public List<Music> getSortedByDecreasingSize(List<Music> list) {
-		list.sort(Comparator.comparing(Music::getSizeInMb).reversed());
-		return list;
+	public List<Music> getSortedByDecreasingSize(final List<Music> list) {
+		var lst = list;
+		lst.sort(Comparator.comparing(
+				Music::getSizeInMb).reversed());
+		return lst;
 	}
-	
+
 	@Override
-	public void addMusic(Music m) {
-		List<Music> lst= content.get(m.getGenre());
+	public void addMusic(final Music m) {
+		List<Music> lst = content.get(m.getGenre());
 		if (lst == null) {
 			lst = new LinkedList<>();
 		}
