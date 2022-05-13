@@ -1,4 +1,4 @@
-package ua.lviv.iot.writer;
+package test.java.ua.lviv.iot.writer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,7 +9,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import ua.lviv.iot.model.Music;
+import main.java.ua.lviv.iot.model.Music;
+import main.java.ua.lviv.iot.writer.MusicWriter;
 
 class MusicWriterTest {
 

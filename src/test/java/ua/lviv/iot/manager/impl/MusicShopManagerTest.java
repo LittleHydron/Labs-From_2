@@ -1,4 +1,4 @@
-package ua.lviv.iot.manager.impl;
+package test.java.ua.lviv.iot.manager.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,7 +7,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import ua.lviv.iot.model.Music;
+import main.java.ua.lviv.iot.manager.impl.MusicShopManager;
+import main.java.ua.lviv.iot.model.Music;
+
+
 
 class MusicShopManagerTest {
 	@Test

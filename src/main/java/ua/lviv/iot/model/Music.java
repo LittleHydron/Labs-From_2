@@ -1,4 +1,4 @@
-package ua.lviv.iot.model;
+package main.java.ua.lviv.iot.model;
 
 public class Music {
 	private String genre;
