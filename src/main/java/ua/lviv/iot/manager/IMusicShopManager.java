@@ -1,8 +1,8 @@
-package ua.lviv.iot.manager;
+package main.java.ua.lviv.iot.manager;
 
 import java.util.List;
 
-import ua.lviv.iot.model.Music;
+import main.java.ua.lviv.iot.model.Music;
 
 public interface IMusicShopManager {
 	List<Music> findByGenreForCD(String genre);

@@ -1,8 +1,10 @@
-package ua.lviv.iot.model;
+package test.java.ua.lviv.iot.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import main.java.ua.lviv.iot.model.Music;
 
 class MusicTest {
 

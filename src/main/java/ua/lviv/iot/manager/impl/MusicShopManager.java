@@ -1,4 +1,4 @@
-package ua.lviv.iot.manager.impl;
+package main.java.ua.lviv.iot.manager.impl;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -6,17 +6,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import ua.lviv.iot.manager.IMusicShopManager;
-import ua.lviv.iot.model.Music;
+import main.java.ua.lviv.iot.manager.IMusicShopManager;
+import main.java.ua.lviv.iot.model.Music;
 
 public class MusicShopManager implements IMusicShopManager {
 	private Map<String, List<Music>> content = new HashMap<>();
 
-	@Override
-	public List<Music> findByGenreForCD(final String genre) {
-		final int maxDuration = 11;
-		List<Music> list = new LinkedList<>();
-		content.get(genre).forEach(music -> {
+    @Override
+    public List<Music> findByGenreForCD(final String genre) {
+        final int maxDuration = 11;
+        List<Music> list = new LinkedList<>();
+        content.get(genre).forEach(music -> {
 			if (music.getDurationInMinutes() < maxDuration) {
 				list.add(music);
 			}
